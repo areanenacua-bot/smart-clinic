@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700&display=swap');
         
         body {
             font-family: 'Inter', sans-serif;
@@ -56,18 +56,23 @@
                 <span>Smart Clinic Guide</span>
             </a>
             <div class="flex flex-wrap items-center gap-3">
-                <a href="#guide-start" class="text-gray-700 hover:text-red-800 font-medium">Guide</a>
-                <a href="#download-app" class="text-gray-700 hover:text-red-800 font-medium">Download</a>
-                <a href="#troubleshooting" class="text-gray-700 hover:text-red-800 font-medium">Troubleshoot</a>
-                <a href="app-debug.apk" download class="inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-full shadow-sm hover:bg-red-600 transition">
-                    <i class="fas fa-download"></i>
-                    Download APK
-                </a>
+                <a href="#guide-start" class="text-gray-700 hover:text-red-800 font-medium px-2 py-1 text-sm md:text-base">Guide</a>
+                <a href="#download-app" class="text-gray-700 hover:text-red-800 font-medium px-2 py-1 text-sm md:text-base">Download / Access</a>
+                <a href="#troubleshooting" class="text-gray-700 hover:text-red-800 font-medium px-2 py-1 text-sm md:text-base">Troubleshoot</a>
+                <div class="flex items-center gap-2">
+                    <a href="app-debug.apk" download class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-red-700 text-white rounded-full text-xs font-semibold shadow-sm hover:bg-red-600 transition">
+                        <i class="fab fa-android text-sm"></i>
+                        <span>Android APK</span>
+                    </a>
+                    <a href="#download-app" class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-zinc-800 text-white rounded-full text-xs font-semibold shadow-sm hover:bg-zinc-700 transition">
+                        <i class="fas fa-globe text-sm"></i>
+                        <span>iOS Web App</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero-gradient text-white relative overflow-hidden min-h-[90vh] flex items-center">
         <!-- Abstract Shapes -->
         <div class="absolute top-[-10%] right-[-10%] w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -78,48 +83,48 @@
                 <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
                     <div class="inline-flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-full mb-6 border border-white/20">
                         <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                        <span class="text-sm font-medium tracking-wide uppercase"> User Guide</span>
+                        <span class="text-sm font-medium tracking-wide uppercase">Cross-Platform User Guide</span>
                     </div>
                     <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
                         Learn Smart Clinic <br/>
                         <span class="text-red-200">Before You Need It</span>
                     </h1>
                     <p class="text-xl text-red-50 opacity-90 mb-10 max-w-xl mx-auto lg:mx-0">
-                        A simple guide for installing, setting up, and using the MSU-SND Smart Clinic app safely and confidently.
+                        A simple guide for installing the Android APK or launching the instant iOS web app safely and confidently.
                     </p>
 
                     <div class="guide-card rounded-3xl p-5 mb-8 max-w-xl mx-auto lg:mx-0 backdrop-blur">
                         <div class="grid sm:grid-cols-3 gap-3 text-left">
                             <div class="guide-chip rounded-2xl p-4">
-                                <i class="fas fa-shield-heart text-2xl mb-3"></i>
+                                <i class="fas fa-shield-heart text-2xl mb-3 text-red-200"></i>
                                 <p class="font-bold">SOS Ready</p>
-                                <p class="text-sm text-red-100">Know when and how to request urgent help.</p>
+                                <p class="text-xs text-red-100 mt-1">Know when and how to request urgent help.</p>
                             </div>
                             <div class="guide-chip rounded-2xl p-4">
-                                <i class="fas fa-location-crosshairs text-2xl mb-3"></i>
+                                <i class="fas fa-location-crosshairs text-2xl mb-3 text-red-200"></i>
                                 <p class="font-bold">Location Aware</p>
-                                <p class="text-sm text-red-100">Understand why GPS permission matters.</p>
+                                <p class="text-xs text-red-100 mt-1">Understand why GPS permission matters.</p>
                             </div>
                             <div class="guide-chip rounded-2xl p-4">
-                                <i class="fas fa-bell text-2xl mb-3"></i>
+                                <i class="fas fa-bell text-2xl mb-3 text-red-200"></i>
                                 <p class="font-bold">Alerts On</p>
-                                <p class="text-sm text-red-100">Keep notifications enabled for clinic updates.</p>
+                                <p class="text-xs text-red-100 mt-1">Keep notifications enabled for clinic updates.</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="#guide-start" class="w-full sm:w-auto px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 flex items-center justify-center space-x-3">
-                            <i class="fas fa-book-open text-xl"></i>
-                            <span>Start the Guide</span>
+                    <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-4">
+                        <a href="#guide-start" class="w-full sm:w-auto px-6 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                            <i class="fas fa-book-open text-lg"></i>
+                            <span>Start Guide</span>
                         </a>
-                        <a href="#download-app" class="w-full sm:w-auto px-8 py-4 bg-red-700 text-white font-bold rounded-2xl shadow-xl hover:bg-red-600 transition transform hover:-translate-y-1 flex items-center justify-center space-x-3">
-                            <i class="fas fa-download text-xl"></i>
-                            <span>Download APK</span>
+                        <a href="app-debug.apk" download class="w-full sm:w-auto px-6 py-4 bg-red-700 text-white font-bold rounded-2xl shadow-xl hover:bg-red-600 transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                            <i class="fab fa-android text-lg"></i>
+                            <span>Get Android APK</span>
                         </a>
-                        <a href="#troubleshooting" class="text-white hover:text-red-200 font-semibold flex items-center space-x-2 transition">
-                            <span>Troubleshooting</span>
-                            <i class="fas fa-arrow-right"></i>
+                        <a href="#download-app" class="w-full sm:w-auto px-6 py-4 bg-zinc-900 text-white font-bold rounded-2xl shadow-xl hover:bg-zinc-800 transition transform hover:-translate-y-1 flex items-center justify-center space-x-2">
+                            <i class="fas fa-globe text-lg"></i>
+                            <span>Launch iOS Web App</span>
                         </a>
                     </div>
                 </div>
@@ -130,7 +135,6 @@
                         <div class="absolute top-0 w-full h-6 bg-gray-900 flex justify-center">
                             <div class="w-24 h-4 bg-gray-900 rounded-b-xl"></div>
                         </div>
-                        <!-- Replace src with an actual screenshot of your app if available -->
                         <div class="w-full h-full phone-screen flex items-center justify-center p-4">
                             <div class="text-center">
                                 <img src="web_app/imgs/logo.png" class="w-24 h-24 mx-auto mb-4 rounded-2xl shadow-lg" onerror="this.src='mobile_app/res/icon_logo.png'">
@@ -160,13 +164,12 @@
         </div>
     </header>
 
-    <!-- Quick Orientation -->
     <section id="guide-start" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl font-bold mb-4">What You Can Do in Smart Clinic</h2>
                 <p class="text-gray-600">Use the app as your campus health companion: request help, check clinic updates, manage appointments, and view health-related records.</p>
-                <div class="w-20 h-1.5 bg-red-700 mx-auto rounded-full"></div>
+                <div class="w-20 h-1.5 bg-red-700 mx-auto rounded-full mt-4"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-12">
@@ -197,36 +200,40 @@
         </div>
     </section>
 
-    <!-- Installation Guide -->
     <section class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-white rounded-[3rem] shadow-xl overflow-hidden">
+            <div class="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-xl overflow-hidden">
                 <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/3 bg-red-800 text-white p-12">
-                        <h3 class="text-2xl font-bold mb-6">Before Installing</h3>
-                        <p class="opacity-80">Android may ask for extra confirmation because the app is installed outside the Play Store for thesis testing.</p>
+                    <div class="md:w-1/3 bg-red-800 text-white p-12 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6">Setup Overview</h3>
+                            <p class="opacity-80">Depending on your platform, you will either install the native package (Android) or add the system webpage directly to your mobile desktop (iOS).</p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-red-700/60 hidden md:block">
+                            <span class="text-xs uppercase tracking-wider font-semibold opacity-60">MSU-SND Smart Clinic</span>
+                        </div>
                     </div>
                     <div class="md:w-2/3 p-12">
                         <div class="space-y-8">
                             <div class="flex items-start space-x-4">
                                 <div class="bg-red-100 text-red-800 w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">1</div>
                                 <div>
-                                    <h4 class="font-bold text-lg">Use the Official Project Link</h4>
-                                    <p class="text-gray-600">Only install the app from the link or QR code provided by the Smart Clinic team, adviser, or authorized campus staff.</p>
+                                    <h4 class="font-bold text-lg">Use the Official Developer Links</h4>
+                                    <p class="text-gray-600">Ensure security by using only the download links and system references approved on this official thesis user guide page.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
                                 <div class="bg-red-100 text-red-800 w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">2</div>
                                 <div>
-                                    <h4 class="font-bold text-lg">Understand "Install Unknown Apps"</h4>
-                                    <p class="text-gray-600">Android may ask you to allow your browser or file manager to install apps. This permission should be enabled only for this installation, then turned off again afterward.</p>
+                                    <h4 class="font-bold text-lg">Android: Enable Installation of Unknown Apps</h4>
+                                    <p class="text-gray-600">Since the application package is distributed locally, Android will prompt you to authorize downloads from your mobile browser before installing the APK.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
                                 <div class="bg-red-100 text-red-800 w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">3</div>
                                 <div>
-                                    <h4 class="font-bold text-lg">Review Android Warnings Carefully</h4>
-                                    <p class="text-gray-600">Security prompts are normal for school project apps. Read each screen, confirm the app name, and ask the team if anything looks unfamiliar.</p>
+                                    <h4 class="font-bold text-lg">iOS: Use the Cloud Web App (PWA) directly</h4>
+                                    <p class="text-gray-600">No complex downloads or Developer Certificate trust steps are required on Apple devices! iOS users can launch the optimized cloud-hosted web version and click <strong>"Add to Home Screen"</strong> inside Safari.</p>
                                 </div>
                             </div>
                         </div>
@@ -236,44 +243,92 @@
         </div>
     </section>
 
-    <!-- Download App -->
     <section id="download-app" class="py-24 bg-red-50">
         <div class="container mx-auto px-6">
-            <div class="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-red-100">
-                <div class="grid lg:grid-cols-2 gap-0 lg:gap-0">
-                    <div class="p-12 bg-red-800 text-white flex flex-col justify-center">
-                        <h2 class="text-4xl font-bold mb-4">Download the Smart Clinic APK</h2>
-                        <p class="text-red-100 leading-relaxed mb-8">Get the latest version of the Smart Clinic mobile app once the repository link is ready. This download button will connect to the approved release source.</p>
-                        <div class="inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-4">
-                            <i class="fas fa-github text-2xl"></i>
-                            <span class="text-sm uppercase tracking-[0.18em] font-semibold">GitHub repo coming soon</span>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-red-800 bg-red-100 px-3 py-1.5 rounded-full">Access Hub</span>
+                <h2 class="text-4xl font-bold mt-4 mb-4">Launch MSU-SND Smart Clinic</h2>
+                <p class="text-gray-600">Select your platform below. Android users get the full compiled APK package, while iOS users instantly access the web app portal.</p>
+                <div class="w-20 h-1.5 bg-red-700 mx-auto rounded-full mt-4"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+                
+                <!-- Android Download Card -->
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col justify-between p-8 sm:p-10 transition hover:shadow-2xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 text-3xl">
+                                <i class="fab fa-android"></i>
+                            </span>
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">Android APK</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Install Android APK</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Perfect for rapid local testing on Android. Download and install the compiled local package directly on your mobile device.
+                        </p>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 text-sm text-gray-500 space-y-2 mb-8">
+                            <p class="flex items-center gap-2"><i class="fas fa-microchip text-emerald-700"></i> Platform: Android (SDK 26+)</p>
+                            <p class="flex items-center gap-2"><i class="fas fa-file-invoice text-emerald-700"></i> Format: Direct APK Download</p>
                         </div>
                     </div>
-                    <div class="p-12 flex flex-col justify-center">
-                        <div class="bg-gray-50 rounded-[2rem] p-8 shadow-xl border border-gray-200">
-                            <div class="flex items-center gap-4 mb-6">
-                                <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-red-700 text-white text-2xl">
-                                    <i class="fas fa-download"></i>
-                                </span>
-                                <div>
-                                    <p class="text-sm uppercase font-semibold text-red-600 tracking-[0.2em]">Safe Release</p>
-                                    <h3 class="text-2xl font-bold text-gray-900">Install the approved APK</h3>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 mb-8">Use the download button below after your thesis team shares the official GitHub repository. If you have not received the link yet, please wait for the authorized release.</p>
-                            <a href="app-debug.apk" download class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 flex items-center justify-center space-x-3">
-                                <i class="fab fa-android text-2xl"></i>
-                                <span>Download for Android</span>
-                            </a>
-                            <p class="text-sm text-gray-500 mt-4">The APK file is expected to be in the same folder as this guide page.</p>
+                    <div>
+                        <a href="app-debug.apk" download class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-emerald-700 text-white font-bold rounded-2xl shadow-lg hover:bg-emerald-600 transition transform hover:-translate-y-1">
+                            <i class="fas fa-cloud-download-alt text-lg"></i>
+                            <span>Download APK File</span>
+                        </a>
+                        <p class="text-xs text-gray-400 mt-3 text-center">Standard local debug installation package.</p>
+                    </div>
+                </div>
+
+                <!-- iOS Download Card -->
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden flex flex-col justify-between p-8 sm:p-10 transition hover:shadow-2xl">
+                    <div>
+                        <div class="flex items-center justify-between mb-8">
+                            <span class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-zinc-900 text-white text-3xl">
+                                <i class="fab fa-apple"></i>
+                            </span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full uppercase tracking-wider">iOS Web App</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Launch on iOS</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Since iOS does not support external APK files, we host a fully optimized cloud web interface for Safari that behaves exactly like a native app.
+                        </p>
+                        <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 text-sm text-gray-500 space-y-2 mb-8">
+                            <p class="flex items-center gap-2"><i class="fab fa-safari text-blue-700"></i> Platform: iOS (Safari Browser)</p>
+                            <p class="flex items-center gap-2"><i class="fas fa-mobile-screen-button text-blue-700"></i> Format: PWA (Add to Home Screen)</p>
                         </div>
                     </div>
+                    <div>
+                        <!-- Replace with target web app landing page URL when deployed -->
+                        <a href="https://smart-clinic-web.web.app" target="_blank" class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-zinc-900 text-white font-bold rounded-2xl shadow-lg hover:bg-zinc-800 transition transform hover:-translate-y-1">
+                            <i class="fas fa-external-link-alt text-lg"></i>
+                            <span>Launch iOS Web App</span>
+                        </a>
+                        <p class="text-xs text-gray-400 mt-3 text-center">Open in Safari, click "Share" -> "Add to Home Screen".</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GitHub Project Alert -->
+            <div class="max-w-5xl mx-auto mt-12 bg-white rounded-2xl p-6 border border-red-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-800 flex items-center justify-center text-xl shrink-0">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Academic Repository Access</h4>
+                        <p class="text-sm text-gray-600">The underlying code repositories (Flutter logic and web build configs) will be shared once academic presentation is concluded.</p>
+                    </div>
+                </div>
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-full text-xs font-bold text-gray-600 uppercase tracking-wider">
+                    Source Repo Coming Soon
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- First Time Setup -->
     <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
@@ -307,7 +362,6 @@
         </div>
     </section>
 
-    <!-- SOS Guide -->
     <section class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8 items-start">
@@ -333,7 +387,6 @@
         </div>
     </section>
 
-    <!-- Troubleshooting -->
     <section id="troubleshooting" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
@@ -347,8 +400,12 @@
                         <p class="text-gray-600">Turn on phone GPS, allow location permission for Smart Clinic, then wait a few seconds for accuracy to improve.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-gray-100 bg-gray-50">
+                        <h3 class="font-bold mb-2"><i class="fab fa-apple text-zinc-950 mr-2"></i>iOS: How do I save the web app to my home screen?</h3>
+                        <p class="text-gray-600">Open the iOS Web App Link using Apple Safari. Tap the <strong>Share button</strong> (the square icon with an arrow pointing up), scroll down, and select <strong>"Add to Home Screen"</strong>. It will now launch with full-screen focus like a normal app.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-gray-100 bg-gray-50">
                         <h3 class="font-bold mb-2"><i class="fas fa-bell-slash text-red-800 mr-2"></i>No notifications are showing</h3>
-                        <p class="text-gray-600">Check Android notification permission, battery saver restrictions, and internet connection. Log out and log in again to refresh your device token.</p>
+                        <p class="text-gray-600">Check device notification permissions, battery saver restrictions, and internet connection. Log out and log in again to refresh your device token.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-gray-100 bg-gray-50">
                         <h3 class="font-bold mb-2"><i class="fas fa-user-lock text-red-800 mr-2"></i>Login is not accepted</h3>
@@ -363,7 +420,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-6 text-center">
             <div class="flex flex-col items-center justify-center gap-4 mb-6">
@@ -371,15 +427,21 @@
                     <img src="web_app/imgs/logo.png" class="w-10 h-10 rounded-lg grayscale opacity-50" onerror="this.src='mobile_app/res/icon_logo.png'">
                     <span class="text-white font-bold tracking-tight text-xl">Smart Clinic</span>
                 </div>
-                <div class="inline-flex items-center gap-2 text-sm text-gray-300">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub repo link will be added here once ready.</span>
+                <div class="inline-flex flex-col sm:flex-row items-center gap-2 text-sm text-gray-300">
+                    <div class="flex items-center gap-1.5">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub repo link will be added here once ready.</span>
+                    </div>
                 </div>
             </div>
             <p class="mb-6">Developed by BSIT 3 students for Academic Thesis Purposes.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm">
                 <p>&copy; 2026 MSU SND. All Rights Reserved.</p>
-                <a href="app-debug.apk" download class="text-gray-300 hover:text-white">Download APK</a>
+                <div class="flex items-center gap-3">
+                    <a href="app-debug.apk" download class="text-gray-300 hover:text-white underline">Download APK</a>
+                    <span class="text-gray-600">|</span>
+                    <a href="#download-app" class="text-gray-300 hover:text-white underline">iOS Web App</a>
+                </div>
             </div>
         </div>
     </footer>
