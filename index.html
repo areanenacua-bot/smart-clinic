@@ -56,13 +56,14 @@
                 <span>Smart Clinic Guide</span>
             </a>
             <div class="flex flex-wrap items-center gap-3">
-                <a href="#guide-start" class="text-gray-700 hover:text-red-800 font-medium">Guide</a>
-                <a href="#download-app" class="text-gray-700 hover:text-red-800 font-medium">Download</a>
+                <a href="#guide-start" class="text-gray-700 hover:text-red-800 font-medium">Overview</a>
+                <a href="#app-learning" class="text-gray-700 hover:text-red-800 font-medium">Learn App</a>
+                <a href="#android-install" class="text-gray-700 hover:text-red-800 font-medium">Android</a>
+                <a href="#download-app" class="text-gray-700 hover:text-red-800 font-medium">Install</a>
+                <a href="#ios-web-app" class="text-gray-700 hover:text-red-800 font-medium">iOS/iPad</a>
+                <a href="#first-time-setup" class="text-gray-700 hover:text-red-800 font-medium">First-Time Setup</a>
+                <a href="#sos-guide" class="text-gray-700 hover:text-red-800 font-medium">SOS Guide</a>
                 <a href="#troubleshooting" class="text-gray-700 hover:text-red-800 font-medium">Troubleshoot</a>
-                <a href="app-debug.apk" download class="inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-full shadow-sm hover:bg-red-600 transition">
-                    <i class="fas fa-download"></i>
-                    Download APK
-                </a>
             </div>
         </div>
     </nav>
@@ -78,7 +79,7 @@
                 <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
                     <div class="inline-flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-full mb-6 border border-white/20">
                         <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                        <span class="text-sm font-medium tracking-wide uppercase">Student User Guide</span>
+                        <span class="text-sm font-medium tracking-wide uppercase"> User Guide</span>
                     </div>
                     <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
                         Learn Smart Clinic <br/>
@@ -108,19 +109,35 @@
                         </div>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="#guide-start" class="w-full sm:w-auto px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 flex items-center justify-center space-x-3">
-                            <i class="fas fa-book-open text-xl"></i>
-                            <span>Start the Guide</span>
-                        </a>
-                        <a href="#download-app" class="w-full sm:w-auto px-8 py-4 bg-red-700 text-white font-bold rounded-2xl shadow-xl hover:bg-red-600 transition transform hover:-translate-y-1 flex items-center justify-center space-x-3">
-                            <i class="fas fa-download text-xl"></i>
-                            <span>Download APK</span>
-                        </a>
-                        <a href="#troubleshooting" class="text-white hover:text-red-200 font-semibold flex items-center space-x-2 transition">
-                            <span>Troubleshooting</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="grid sm:grid-cols-2 gap-4 text-left max-w-xl mx-auto lg:mx-0">
+                        <div class="rounded-2xl bg-white/10 border border-white/20 p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-user-check text-red-100"></i>
+                                <p class="font-bold">Account Access</p>
+                            </div>
+                            <p class="text-sm text-red-100">Use the account email and temporary password provided by the clinic admin, then reset your password when needed.</p>
+                        </div>
+                        <div class="rounded-2xl bg-white/10 border border-white/20 p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-calendar-check text-red-100"></i>
+                                <p class="font-bold">Clinic Requests</p>
+                            </div>
+                            <p class="text-sm text-red-100">Book appointments, read announcements, and keep track of clinic updates from one place.</p>
+                        </div>
+                        <div class="rounded-2xl bg-white/10 border border-white/20 p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-truck-medical text-red-100"></i>
+                                <p class="font-bold">Emergency Flow</p>
+                            </div>
+                            <p class="text-sm text-red-100">SOS sends your live coordinates to clinic staff and ERT so responders can locate you faster.</p>
+                        </div>
+                        <div class="rounded-2xl bg-white/10 border border-white/20 p-4">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fas fa-mobile-screen text-red-100"></i>
+                                <p class="font-bold">Android and iOS</p>
+                            </div>
+                            <p class="text-sm text-red-100">Android users install the APK, while iPhone and iPad users open Smart Clinic in Safari as a web app.</p>
+                        </div>
                     </div>
                 </div>
 
@@ -197,8 +214,43 @@
         </div>
     </section>
 
+    <!-- App Learning Guide -->
+    <section id="app-learning" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-14">
+                    <p class="text-sm uppercase font-semibold text-red-700 tracking-[0.2em] mb-3">Learn the App</p>
+                    <h2 class="text-3xl font-bold mb-4">How Smart Clinic Helps You</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Smart Clinic connects students, faculty, staff, clinic personnel, and ERT through one health and emergency response system.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-7 rounded-3xl bg-white border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-house-medical"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Home Dashboard</h3>
+                        <p class="text-gray-600">The dashboard shows your main actions: SOS, announcements, appointments, forms, records, and notifications.</p>
+                    </div>
+                    <div class="p-7 rounded-3xl bg-white border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-bell"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Notifications</h3>
+                        <p class="text-gray-600">Notifications keep you updated about announcements, appointment status, clinic reminders, and emergency response updates.</p>
+                    </div>
+                    <div class="p-7 rounded-3xl bg-white border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-notes-medical"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Health Records and Forms</h3>
+                        <p class="text-gray-600">Your clinic information helps staff handle visits faster and keep important health details organized.</p>
+                    </div>
+                    <div class="p-7 rounded-3xl bg-white border border-gray-100 shadow-sm">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-shield-heart"></i></div>
+                        <h3 class="font-bold text-xl mb-2">SOS and ERT Response</h3>
+                        <p class="text-gray-600">During emergencies, the app shares your location, alerts the response team, and shows updates such as help is on the way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Installation Guide -->
-    <section class="py-24 bg-gray-50">
+    <section id="android-install" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto bg-white rounded-[3rem] shadow-xl overflow-hidden">
                 <div class="flex flex-col md:flex-row">
@@ -236,17 +288,17 @@
         </div>
     </section>
 
-    <!-- Download App -->
+    <!-- Install App -->
     <section id="download-app" class="py-24 bg-red-50">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-red-100">
                 <div class="grid lg:grid-cols-2 gap-0 lg:gap-0">
                     <div class="p-12 bg-red-800 text-white flex flex-col justify-center">
-                        <h2 class="text-4xl font-bold mb-4">Download the Smart Clinic App</h2>
-                        <p class="text-red-100 leading-relaxed mb-8">Get the latest version of the Smart Clinic mobile app once the repository link is ready. These download buttons will connect to the approved release sources.</p>
+                        <h2 class="text-4xl font-bold mb-4">Install Smart Clinic</h2>
+                        <p class="text-red-100 leading-relaxed mb-8">Android users can install the APK. iPhone and iPad users should use Smart Clinic as a web app through Safari because there is no iOS APK release.</p>
                         <div class="inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-4">
-                            <i class="fas fa-github text-2xl"></i>
-                            <span class="text-sm uppercase tracking-[0.18em] font-semibold">GitHub repo coming soon</span>
+                            <i class="fas fa-mobile-screen-button text-2xl"></i>
+                            <span class="text-sm uppercase tracking-[0.18em] font-semibold">Android APK + iOS Web App</span>
                         </div>
                     </div>
                     <div class="p-12 flex flex-col justify-center">
@@ -257,21 +309,21 @@
                                 </span>
                                 <div>
                                     <p class="text-sm uppercase font-semibold text-red-600 tracking-[0.2em]">Safe Release</p>
-                                    <h3 class="text-2xl font-bold text-gray-900">Install the approved app</h3>
+                                    <h3 class="text-2xl font-bold text-gray-900">Use the approved access method</h3>
                                 </div>
                             </div>
-                            <p class="text-gray-600 mb-8">Use the download buttons below after your thesis team shares the official release links. If you have not received the link yet, please wait for the authorized release.</p>
+                            <p class="text-gray-600 mb-8">Use the Android APK only if it came from the project team. For iOS, open this Smart Clinic guide or login link in Safari, then add it to your Home Screen as a web app.</p>
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <a href="app-debug.apk" download class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 space-x-3">
                                     <i class="fab fa-android text-2xl"></i>
                                     <span>Download for Android</span>
                                 </a>
-                                <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-bold rounded-2xl shadow-xl hover:bg-gray-800 transition transform hover:-translate-y-1 space-x-3" aria-label="iOS download link coming soon">
+                                <a href="web_app/index.html" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-bold rounded-2xl shadow-xl hover:bg-gray-800 transition transform hover:-translate-y-1 space-x-3" aria-label="Open iOS web app">
                                     <i class="fab fa-apple text-2xl"></i>
-                                    <span>Download for iOS</span>
+                                    <span>Open for iOS</span>
                                 </a>
                             </div>
-                            <p class="text-sm text-gray-500 mt-4">The Android APK is expected to be in the same folder as this guide page. Replace the iOS button link when the iOS release is ready.</p>
+                            <p class="text-sm text-gray-500 mt-4">There is no iOS APK. iOS users should open Smart Clinic in Safari, then add it to the Home Screen.</p>
                         </div>
                     </div>
                 </div>
@@ -279,8 +331,38 @@
         </div>
     </section>
 
+    <!-- iOS Web App Guide -->
+    <section id="ios-web-app" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-14">
+                    <p class="text-sm uppercase font-semibold text-red-700 tracking-[0.2em] mb-3">For iPhone and iPad</p>
+                    <h2 class="text-3xl font-bold mb-4">Use Smart Clinic as an iOS Web App</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Because this project does not provide an iOS APK or App Store build, iOS users should access Smart Clinic through Safari.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fab fa-safari"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Open in Safari</h3>
+                        <p class="text-gray-600">Tap Open for iOS or ask the clinic admin for the official Smart Clinic web link, then open it using Safari on your iPhone or iPad.</p>
+                    </div>
+                    <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-share-from-square"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Add to Home Screen</h3>
+                        <p class="text-gray-600">On iPhone/iPad, tap the Safari Share button, choose Add to Home Screen, then tap Add. This creates a Smart Clinic icon like an app.</p>
+                    </div>
+                    <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
+                        <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-bell"></i></div>
+                        <h3 class="font-bold text-xl mb-2">Allow Permissions</h3>
+                        <p class="text-gray-600">Allow location and notifications when prompted so SOS, alerts, and clinic updates can work properly in the web app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- First Time Setup -->
-    <section class="py-24 bg-white">
+    <section id="first-time-setup" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-14">
@@ -301,7 +383,7 @@
                     <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
                         <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-id-card"></i></div>
                         <h3 class="font-bold text-xl mb-2">Account Details</h3>
-                        <p class="text-gray-600">Users should ask the clinic admin for their registered account email and temporary password. After logging in, use Forgot Password to reset the password to a private one.</p>
+                        <p class="text-gray-600">Ask the clinic admin for your registered account email and temporary password. If you need to change or recover access, use Forgot Password on the login screen and follow the reset email.</p>
                     </div>
                     <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
                         <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-wifi"></i></div>
@@ -314,7 +396,7 @@
     </section>
 
     <!-- SOS Guide -->
-    <section class="py-24 bg-gray-50">
+    <section id="sos-guide" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8 items-start">
                 <div class="lg:col-span-1">
@@ -377,16 +459,15 @@
                     <img src="web_app/imgs/logo.png" class="w-10 h-10 rounded-lg grayscale opacity-50" onerror="this.src='mobile_app/res/icon_logo.png'">
                     <span class="text-white font-bold tracking-tight text-xl">Smart Clinic</span>
                 </div>
-                <div class="inline-flex items-center gap-2 text-sm text-gray-300">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub repo link will be added here once ready.</span>
-                </div>
+                
             </div>
-            <p class="mb-6">Developed by BSIT 3 students for Academic Thesis Purposes.</p>
+            <p class="mb-6">Developed by:</p>
+            <p class="mb-6">Arreanne R. Nacua, Chaylene A. Delosa, Jan Prince T. Lesmoras</p>
+            <p class="mb-6">For Academic Thesis Purposes.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm">
                 <p>&copy; 2026 MSU SND. All Rights Reserved.</p>
                 <a href="app-debug.apk" download class="text-gray-300 hover:text-white">Download APK</a>
-                <a href="#" class="text-gray-300 hover:text-white">Download iOS</a>
+                <a href="#ios-web-app" class="text-gray-300 hover:text-white">iOS Web App Guide</a>
             </div>
         </div>
     </footer>
