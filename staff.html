@@ -8,25 +8,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+        body { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: linear-gradient(135deg, #8C0000 0%, #4a0000 100%); }
         .guide-card { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); box-shadow: 0 24px 70px rgba(0,0,0,0.22); }
         .guide-chip { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.18); }
         .feature-icon { background: rgba(140,0,0,0.1); color: #8C0000; }
+        .nav-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            color: #374151;
+            font-weight: 600;
+            transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+        }
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: #8C0000;
+            background: rgba(140, 0, 0, 0.08);
+            outline: none;
+        }
+        .nav-link.active {
+            color: #8C0000;
+            background: rgba(140, 0, 0, 0.12);
+            box-shadow: inset 0 0 0 1px rgba(140, 0, 0, 0.16);
+        }
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0.25rem;
+            width: 1.5rem;
+            height: 2px;
+            border-radius: 999px;
+            background: #8C0000;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-            <a href="#" class="flex items-center gap-3 text-red-800 font-bold text-lg">
+            <a href="#roles" class="flex items-center gap-3 text-red-800 font-bold text-lg">
                 <img src="web_app/imgs/logo.png" alt="Smart Clinic logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='mobile_app/res/icon_logo.png'">
                 <span>Smart Clinic Staff Guide</span>
             </a>
-            <div class="flex flex-wrap items-center gap-3">
-                <a href="#roles" class="text-gray-700 hover:text-red-800 font-medium">Roles</a>
-                <a href="#workflows" class="text-gray-700 hover:text-red-800 font-medium">Workflows</a>
-                <a href="#security" class="text-gray-700 hover:text-red-800 font-medium">Security</a>
+            <div id="staff-guide-nav" class="flex flex-wrap items-center justify-center gap-2 text-sm" aria-label="Staff guide sections">
+                <a href="#roles" class="nav-link active" aria-current="true">Roles</a>
+                <a href="#workflows" class="nav-link">Workflows</a>
+                <a href="#security" class="nav-link">Security</a>
+                <a href="#troubleshooting" class="nav-link">Troubleshoot</a>
                 <a href="https://smartclinicapp-188c5.web.app" class="inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-full shadow-sm hover:bg-red-600 transition">
                     <i class="fas fa-arrow-up-right-from-square"></i>
                     Open Portal
@@ -138,10 +173,26 @@
                     <h2 class="text-3xl font-bold mb-4">Daily Workflow Checklist</h2>
                     <p class="text-gray-600">Use this as a quick operating rhythm before, during, and after clinic hours.</p>
                 </div>
+                <div class="mb-6 bg-white rounded-3xl border border-red-100 shadow-sm p-6 md:p-7">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                        <div>
+                            <p class="text-sm uppercase tracking-[0.2em] font-bold text-red-700 mb-2">School Clinic Schedule</p>
+                            <h3 class="text-2xl font-bold text-gray-900">Monday to Friday, 8:00 AM - 5:00 PM</h3>
+                            <p class="text-gray-600 mt-2">Use the current clinic date when reviewing appointments, reports, logs, and inventory movement.</p>
+                        </div>
+                        <div class="flex items-center gap-3 rounded-2xl bg-red-50 px-5 py-4 text-red-800">
+                            <i class="fas fa-calendar-days text-2xl"></i>
+                            <div>
+                                <p class="text-sm font-bold">Daily Coverage</p>
+                                <p class="text-sm text-red-700">Clinic-day workflow window</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-white p-7 rounded-3xl border border-gray-100 shadow-sm">
                         <h3 class="font-bold text-xl mb-4"><i class="fas fa-sun text-red-800 mr-2"></i>Start of Day</h3>
-                        <p class="text-gray-600">Check nurse availability, active appointments, low-stock medicine, pending forms, and unresolved SOS records.</p>
+                        <p class="text-gray-600">At 8:00 AM, check nurse availability, active appointments, low-stock medicine, pending forms, and unresolved SOS records.</p>
                     </div>
                     <div class="bg-white p-7 rounded-3xl border border-gray-100 shadow-sm">
                         <h3 class="font-bold text-xl mb-4"><i class="fas fa-truck-medical text-red-800 mr-2"></i>During SOS</h3>
@@ -153,7 +204,7 @@
                     </div>
                     <div class="bg-white p-7 rounded-3xl border border-gray-100 shadow-sm">
                         <h3 class="font-bold text-xl mb-4"><i class="fas fa-moon text-red-800 mr-2"></i>End of Day</h3>
-                        <p class="text-gray-600">Review reports, confirm resolved cases, check movement logs, and sign out of shared computers.</p>
+                        <p class="text-gray-600">Before 5:00 PM, review reports, confirm resolved cases, check movement logs, and sign out of shared computers.</p>
                     </div>
                 </div>
             </div>
@@ -178,7 +229,7 @@
         </div>
     </section>
 
-    <section class="py-24 bg-gray-50">
+    <section id="troubleshooting" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
@@ -209,11 +260,57 @@
                 <img src="web_app/imgs/logo.png" class="w-10 h-10 rounded-lg grayscale opacity-50" onerror="this.src='mobile_app/res/icon_logo.png'">
                 <span class="text-white font-bold tracking-tight text-xl">Smart Clinic Staff Guide</span>
             </div>
-            <p class="mb-6">Developed by:</p>
-            <p class="mb-6">Arreanne R. Nacua, Chaylene A. Delosa, Jan Prince T. Lesmoras</p>
-            <p class="mb-6">For Academic Thesis Purposes.</p>
+            <p class="mb-6">Developed by BSIT 3 students for Academic Thesis Purposes.</p>
             <p class="text-sm">&copy; 2026 MSU SND. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+        const staffNavLinks = Array.from(document.querySelectorAll('#staff-guide-nav .nav-link'));
+        const staffGuideSections = staffNavLinks
+            .map((link) => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        function setActiveStaffSection(sectionId) {
+            staffNavLinks.forEach((link) => {
+                const isActive = link.getAttribute('href') === `#${sectionId}`;
+                link.classList.toggle('active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'true');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        function updateActiveStaffSection() {
+            const scrollPosition = window.scrollY + 170;
+            const pageBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 8;
+
+            if (pageBottom) {
+                setActiveStaffSection(staffGuideSections[staffGuideSections.length - 1].id);
+                return;
+            }
+
+            const currentSection = staffGuideSections
+                .filter((section) => section.offsetTop <= scrollPosition)
+                .pop();
+
+            if (currentSection) {
+                setActiveStaffSection(currentSection.id);
+            }
+        }
+
+        updateActiveStaffSection();
+        window.addEventListener('scroll', updateActiveStaffSection, { passive: true });
+        window.addEventListener('resize', updateActiveStaffSection);
+
+        staffNavLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('href').slice(1);
+                setActiveStaffSection(targetId);
+            });
+        });
+    </script>
 </body>
 </html>
