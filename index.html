@@ -9,9 +9,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 140px;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
         }
 
         .hero-gradient {
@@ -45,25 +49,62 @@
                 radial-gradient(circle at 50% 28%, rgba(239, 68, 68, 0.18), transparent 34%),
                 linear-gradient(180deg, #fff7f7 0%, #fff 100%);
         }
+
+        .nav-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            color: #374151;
+            font-weight: 600;
+            transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus-visible {
+            color: #8C0000;
+            background: rgba(140, 0, 0, 0.08);
+            outline: none;
+        }
+
+        .nav-link.active {
+            color: #8C0000;
+            background: rgba(140, 0, 0, 0.12);
+            box-shadow: inset 0 0 0 1px rgba(140, 0, 0, 0.16);
+        }
+
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0.25rem;
+            width: 1.5rem;
+            height: 2px;
+            border-radius: 999px;
+            background: #8C0000;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-            <a href="#" class="flex items-center gap-3 text-red-800 font-bold text-lg">
+            <a href="#guide-start" class="flex items-center gap-3 text-red-800 font-bold text-lg">
                 <img src="web_app/imgs/logo.png" alt="Smart Clinic logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='mobile_app/res/icon_logo.png'">
                 <span>Smart Clinic Guide</span>
             </a>
-            <div class="flex flex-wrap items-center gap-3">
-                <a href="#guide-start" class="text-gray-700 hover:text-red-800 font-medium">Overview</a>
-                <a href="#app-learning" class="text-gray-700 hover:text-red-800 font-medium">Learn App</a>
-                <a href="#android-install" class="text-gray-700 hover:text-red-800 font-medium">Android</a>
-                <a href="#download-app" class="text-gray-700 hover:text-red-800 font-medium">Install</a>
-                <a href="#ios-web-app" class="text-gray-700 hover:text-red-800 font-medium">iOS/iPad</a>
-                <a href="#first-time-setup" class="text-gray-700 hover:text-red-800 font-medium">First-Time Setup</a>
-                <a href="#sos-guide" class="text-gray-700 hover:text-red-800 font-medium">SOS Guide</a>
-                <a href="#troubleshooting" class="text-gray-700 hover:text-red-800 font-medium">Troubleshoot</a>
+            <div id="guide-nav" class="flex flex-wrap items-center justify-center gap-2 text-sm" aria-label="Guide sections">
+                <a href="#guide-start" class="nav-link active" aria-current="true">Overview</a>
+                <a href="#app-learning" class="nav-link">Learn App</a>
+                <a href="#android-install" class="nav-link">Android</a>
+                <a href="#download-app" class="nav-link">Install</a>
+                <a href="#ios-web-app" class="nav-link">iOS/iPad</a>
+                <a href="#first-time-setup" class="nav-link">First-Time Setup</a>
+                <a href="#sos-guide" class="nav-link">SOS Guide</a>
+                <a href="#troubleshooting" class="nav-link">Troubleshoot</a>
             </div>
         </div>
     </nav>
@@ -472,5 +513,48 @@
         </div>
     </footer>
 
+    <script>
+        const navLinks = Array.from(document.querySelectorAll('#guide-nav .nav-link'));
+        const guideSections = navLinks
+            .map((link) => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        function setActiveSection(sectionId) {
+            navLinks.forEach((link) => {
+                const isActive = link.getAttribute('href') === `#${sectionId}`;
+                link.classList.toggle('active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'true');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                const visibleSections = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+                if (visibleSections.length) {
+                    setActiveSection(visibleSections[0].target.id);
+                }
+            }, {
+                rootMargin: '-35% 0px -50% 0px',
+                threshold: [0.1, 0.25, 0.5, 0.75]
+            });
+
+            guideSections.forEach((section) => observer.observe(section));
+        }
+
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                const targetId = link.getAttribute('href').slice(1);
+                setActiveSection(targetId);
+            });
+        });
+    </script>
 </body>
 </html>
