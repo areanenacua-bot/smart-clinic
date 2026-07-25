@@ -47,25 +47,59 @@
             background: #8C0000;
             transform: translateX(-50%);
         }
+        .mobile-nav-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 300ms ease-in-out;
+        }
+        .mobile-nav-menu.open {
+            max-height: 500px;
+        }
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 80px; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-            <a href="#roles" class="flex items-center gap-3 text-red-800 font-bold text-lg">
-                <img src="web_app/imgs/logo.png" alt="Smart Clinic logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='mobile_app/res/icon_logo.png'">
-                <span>Smart Clinic Staff Guide</span>
-            </a>
-            <div id="staff-guide-nav" class="flex flex-wrap items-center justify-center gap-2 text-sm" aria-label="Staff guide sections">
-                <a href="#roles" class="nav-link active" aria-current="true">Roles</a>
-                <a href="#workflows" class="nav-link">Workflows</a>
-                <a href="#security" class="nav-link">Security</a>
-                <a href="#troubleshooting" class="nav-link">Troubleshoot</a>
-                <a href="https://smartclinicapp-188c5.web.app" class="inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-full shadow-sm hover:bg-red-600 transition">
-                    <i class="fas fa-arrow-up-right-from-square"></i>
-                    Open Portal
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#roles" class="flex items-center gap-3 text-red-800 font-bold text-lg">
+                    <img src="web_app/imgs/logo.png" alt="Smart Clinic logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='mobile_app/res/icon_logo.png'">
+                    <span class="hidden sm:inline">Smart Clinic Staff Guide</span>
                 </a>
+                
+                <!-- Hamburger Menu Button (Mobile) -->
+                <button id="mobile-menu-toggle" class="md:hidden flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars text-2xl text-gray-900"></i>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <div id="staff-guide-nav" class="hidden md:flex flex-wrap items-center justify-center gap-2 text-sm" aria-label="Staff guide sections">
+                    <a href="#roles" class="nav-link active" aria-current="true">Roles</a>
+                    <a href="#workflows" class="nav-link">Workflows</a>
+                    <a href="#security" class="nav-link">Security</a>
+                    <a href="#troubleshooting" class="nav-link">Troubleshoot</a>
+                    <a href="https://smartclinicapp-188c5.web.app" class="inline-flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-full shadow-sm hover:bg-red-600 transition">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                        <span class="hidden lg:inline">Open Portal</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-nav-menu" class="mobile-nav-menu md:hidden">
+                <div class="pt-4 pb-2 flex flex-col gap-2" aria-label="Staff guide sections mobile">
+                    <a href="#roles" class="nav-link active w-full text-left px-4 py-2" aria-current="true">Roles</a>
+                    <a href="#workflows" class="nav-link w-full text-left px-4 py-2">Workflows</a>
+                    <a href="#security" class="nav-link w-full text-left px-4 py-2">Security</a>
+                    <a href="#troubleshooting" class="nav-link w-full text-left px-4 py-2">Troubleshoot</a>
+                    <a href="https://smartclinicapp-188c5.web.app" class="flex items-center gap-2 px-4 py-2 bg-red-700 text-white rounded-full shadow-sm hover:bg-red-600 transition w-full justify-center mt-2">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                        Open Portal
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -109,7 +143,7 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://smartclinicapp-188c5.web.app" class="px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <a href="https://smartclinicapp-188c5.web.app" class="px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
                         <i class="fas fa-globe"></i>
                         <span>Firebase Web Portal</span>
                     </a>
@@ -265,9 +299,31 @@
         </div>
     </footer>
     <script>
-        const staffNavLinks = Array.from(document.querySelectorAll('#staff-guide-nav .nav-link'));
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileNavMenu.classList.toggle('open');
+            const isOpen = mobileNavMenu.classList.contains('open');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNavMenu.classList.remove('open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Navigation highlighting
+        const staffNavLinks = Array.from(document.querySelectorAll('.nav-link'));
         const staffGuideSections = staffNavLinks
-            .map((link) => document.querySelector(link.getAttribute('href')))
+            .map((link) => {
+                const href = link.getAttribute('href');
+                return href.startsWith('#') ? document.querySelector(href) : null;
+            })
             .filter(Boolean);
 
         function setActiveStaffSection(sectionId) {
