@@ -86,17 +86,84 @@
             background: #8C0000;
             transform: translateX(-50%);
         }
+
+        .mobile-menu-open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .mobile-menu-closed {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        #guide-nav {
+            transition: max-height 300ms ease, opacity 300ms ease;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            #guide-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border-bottom: 1px solid #e5e7eb;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                overflow: hidden;
+            }
+
+            #guide-nav.closed {
+                max-height: 0;
+                opacity: 0;
+            }
+
+            #guide-nav.open {
+                max-height: 400px;
+                opacity: 1;
+            }
+
+            nav {
+                position: relative;
+            }
+
+            .nav-link {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-3">
-            <a href="#guide-start" class="flex items-center gap-3 text-red-800 font-bold text-lg">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#guide-start" class="flex items-center gap-3 text-red-800 font-bold text-lg flex-shrink-0">
                 <img src="web_app/imgs/logo.png" alt="Smart Clinic logo" class="w-10 h-10 rounded-lg object-cover" onerror="this.src='mobile_app/res/icon_logo.png'">
-                <span>Smart Clinic Guide</span>
+                <span class="hidden sm:inline">Smart Clinic Guide</span>
             </a>
-            <div id="guide-nav" class="flex flex-wrap items-center justify-center gap-2 text-sm" aria-label="Guide sections">
+            
+            <button class="hamburger flex-col items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="w-6 h-0.5 bg-gray-600 mb-1.5 transition-all"></span>
+                <span class="w-6 h-0.5 bg-gray-600 mb-1.5 transition-all"></span>
+                <span class="w-6 h-0.5 bg-gray-600 transition-all"></span>
+            </button>
+
+            <div id="guide-nav" class="hidden md:flex md:flex-wrap md:items-center md:justify-center md:gap-2 md:text-sm closed" aria-label="Guide sections">
                 <a href="#guide-start" class="nav-link active" aria-current="true">Overview</a>
                 <a href="#app-learning" class="nav-link">Learn App</a>
                 <a href="#android-install" class="nav-link">Android</a>
@@ -312,14 +379,14 @@
                                 <div class="bg-red-100 text-red-800 w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">2</div>
                                 <div>
                                     <h4 class="font-bold text-lg">Understand "Install Unknown Apps"</h4>
-                                    <p class="text-gray-600">Android may ask you to allow your browser or file manager to install apps. This permission should be enabled only for this installation, then turned off again afterward.</p>
+                                    <p class="text-gray-600">Android may ask you to allow your browser or file manager to install apps. This permission should be enabled only for this installation, th[...]
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
                                 <div class="bg-red-100 text-red-800 w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">3</div>
                                 <div>
                                     <h4 class="font-bold text-lg">Review Android Warnings Carefully</h4>
-                                    <p class="text-gray-600">Security prompts are normal for school project apps. Read each screen, confirm the app name, and ask the team if anything looks unfamiliar.</p>
+                                    <p class="text-gray-600">Security prompts are normal for school project apps. Read each screen, confirm the app name, and ask the team if anything looks unfamiliar.[...]
                                 </div>
                             </div>
                         </div>
@@ -336,7 +403,7 @@
                 <div class="grid lg:grid-cols-2 gap-0 lg:gap-0">
                     <div class="p-12 bg-red-800 text-white flex flex-col justify-center">
                         <h2 class="text-4xl font-bold mb-4">Install Smart Clinic</h2>
-                        <p class="text-red-100 leading-relaxed mb-8">Android users can install the APK. iPhone and iPad users should use Smart Clinic as a web app through Safari because there is no iOS APK release.</p>
+                        <p class="text-red-100 leading-relaxed mb-8">Android users can install the APK. iPhone and iPad users should use Smart Clinic as a web app through Safari because there is no iO[...]
                         <div class="inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-4">
                             <i class="fas fa-mobile-screen-button text-2xl"></i>
                             <span class="text-sm uppercase tracking-[0.18em] font-semibold">Android APK + iOS Web App</span>
@@ -353,13 +420,13 @@
                                     <h3 class="text-2xl font-bold text-gray-900">Use the approved access method</h3>
                                 </div>
                             </div>
-                            <p class="text-gray-600 mb-8">Use the Android APK only if it came from the project team. For iOS, open this Smart Clinic guide or login link in Safari, then add it to your Home Screen as a web app.</p>
+                            <p class="text-gray-600 mb-8">Use the Android APK only if it came from the project team. For iOS, open this Smart Clinic guide or login link in Safari, then add it to [...]
                             <div class="flex flex-col sm:flex-row gap-3">
-                                <a href="app-debug.apk" download class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl hover:bg-red-50 transition transform hover:-translate-y-1 space-x-3">
+                                <a href="app-debug.apk" download class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-red-800 font-bold rounded-2xl shadow-xl ho[...]
                                     <i class="fab fa-android text-2xl"></i>
                                     <span>Download for Android</span>
                                 </a>
-                                <a href="https://smartclinic3421.netlify.app/" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-bold rounded-2xl shadow-xl hover:bg-gray-800 transition transform hover:-translate-y-1 space-x-3" aria-label="Open iOS web app">
+                                <a href="https://smartclinic3421.netlify.app/" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-bold rounded-2[...]
                                     <i class="fab fa-apple text-2xl"></i>
                                     <span>Open for iOS</span>
                                 </a>
@@ -424,7 +491,7 @@
                     <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
                         <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-id-card"></i></div>
                         <h3 class="font-bold text-xl mb-2">Account Details</h3>
-                        <p class="text-gray-600">Ask the clinic admin for your registered account email and temporary password. If you need to change or recover access, use Forgot Password on the login screen and follow the reset email.</p>
+                        <p class="text-gray-600">Ask the clinic admin for your registered account email and temporary password. If you need to change or recover access, use Forgot Password on the logi[...]
                     </div>
                     <div class="p-7 rounded-3xl bg-gray-50 border border-gray-100">
                         <div class="w-12 h-12 feature-icon rounded-2xl flex items-center justify-center text-xl mb-5"><i class="fas fa-wifi"></i></div>
@@ -477,11 +544,11 @@
                     </div>
                     <div class="p-6 rounded-2xl border border-gray-100 bg-gray-50">
                         <h3 class="font-bold mb-2"><i class="fas fa-bell-slash text-red-800 mr-2"></i>No notifications are showing</h3>
-                        <p class="text-gray-600">Check Android notification permission, battery saver restrictions, and internet connection. Log out and log in again to refresh your device token.</p>
+                        <p class="text-gray-600">Check Android notification permission, battery saver restrictions, and internet connection. Log out and log in again to refresh your device token.[...]
                     </div>
                     <div class="p-6 rounded-2xl border border-gray-100 bg-gray-50">
                         <h3 class="font-bold mb-2"><i class="fas fa-user-lock text-red-800 mr-2"></i>Login is not accepted</h3>
-                        <p class="text-gray-600">Ask the clinic admin to confirm your registered account email and temporary password. If the account exists but you need a new password, click Forgot Password on the login screen and follow the reset email.</p>
+                        <p class="text-gray-600">Ask the clinic admin to confirm your registered account email and temporary password. If the account exists but you need a new password, click For[...]
                     </div>
                     <div class="p-6 rounded-2xl border border-gray-100 bg-gray-50">
                         <h3 class="font-bold mb-2"><i class="fas fa-rotate text-red-800 mr-2"></i>App looks outdated</h3>
@@ -515,9 +582,34 @@
 
     <script>
         const navLinks = Array.from(document.querySelectorAll('#guide-nav .nav-link'));
+        const guideNav = document.getElementById('guide-nav');
+        const menuToggle = document.getElementById('menu-toggle');
         const guideSections = navLinks
             .map((link) => document.querySelector(link.getAttribute('href')))
             .filter(Boolean);
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', () => {
+            const isOpen = guideNav.classList.contains('open');
+            if (isOpen) {
+                guideNav.classList.remove('open');
+                guideNav.classList.add('closed');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                guideNav.classList.remove('closed');
+                guideNav.classList.add('open');
+                menuToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                guideNav.classList.remove('open');
+                guideNav.classList.add('closed');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
 
         function setActiveSection(sectionId) {
             navLinks.forEach((link) => {
